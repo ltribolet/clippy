@@ -11,4 +11,15 @@
 |
 */
 
+Route::model('paste', 'Pastes');
+
 Route::get('/', 'ClipController@index');
+//Route::get('/{id}', 'ClipController@get');
+Route::get('/create', 'ClipController@create');
+Route::get('/edit/{paste}', 'ClipController@edit');
+Route::get('/delete/{paste}', 'ClipController@delete');
+
+// Handle form submissions.
+Route::post('/create', 'ClipController@handleCreate');
+Route::post('/edit', 'ClipController@handleEdit');
+Route::post('/delete', 'ClipController@handleDelete');

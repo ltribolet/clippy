@@ -1,79 +1,74 @@
 <?php
 
-class ClipController extends \BaseController {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+class ClipController extends BaseController
+{
 	public function index()
 	{
-		return View::make('clip');
+		// Show a listing of games.
+		$pastes = Pastes::all();
+		return View::make('index', compact('pastes'));
+
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
-		//
+		// Show the create paste form.
+		return View::make('create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+	public function handleCreate()
 	{
-		//
+		// Handle create form submission.
+		$paste = new Pastes;
+		$paste->title = Input::get('title');
+		$paste->author = Input::get('author');
+		$paste->language = Input::get('language');
+		$paste->code = Input::get('code');
+		$paste->save();
+
+		return Redirect::action('ClipController@index');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+	public function get()
 	{
-		//
+		# code...
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+	public function edit(Pastes $paste)
 	{
-		//
+		// Show the edit paste form.
+		return View::make('edit', compact('paste'));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+	public function handleEdit()
 	{
-		//
+		// Handle edit form submission
+		$paste = Pastes::findOrFail(Input::get('id'));
+		$paste->title = Input::get('title');
+		$paste->author = Input::get('author');
+		$paste->language = Input::get('language');
+		$paste->code = Input::has('code');
+		$paste->save();
+
+		return Redirect::action('CLipController@index');
+
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+
+	public function delete(Pastes $paste)
 	{
-		//
+		// Show delete confirmation page.
+		return View::make('delete', compact('paste'));
 	}
 
+	public function handleDelete()
+	{
+		// Handle the delete confirmation.
+		$id = Input::get('paste');
+		$paste = Pastes::findOrFail($id);
+		$paste->delete();
+
+		return Redirect::action('ClipController@index');
+
+	}
 }

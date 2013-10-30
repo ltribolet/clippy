@@ -32,6 +32,8 @@ $env = $app->detectEnvironment(array(
 
 ));
 
+//	Laravel\Database\Eloquent\Pivot::$timestamps = false;
+
 /*
 |--------------------------------------------------------------------------
 | Bind Paths
