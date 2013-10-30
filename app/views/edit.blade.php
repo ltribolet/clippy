@@ -18,7 +18,7 @@
 			</div>
 			<div class="form-group">
 				{{ Form::label('language', 'Language'); }}
-				{{ Form::select('language', array('L' => 'Large', 'S' => 'Small'), null, array('class' => 'form-control')) }}
+				{{ Form::select('language', Languages::lists('name','safe_name'), null, array('class' => 'form-control')) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('code', 'Paste your code'); }}
