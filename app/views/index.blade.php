@@ -37,7 +37,7 @@
 		<tbody>
 		@foreach($pastes as $paste)
 			<tr>
-				<td><a href="#">{{ $paste->title }}</a></td>
+				<td><a href="{{ action('ClipController@get', $paste->id) }}">{{ $paste->title }}</a></td>
 				<td>{{ $paste->author }}</td>
 				<td>{{ $paste->private ? 'Yes' : 'No' }}</td>
 				<td>{{ $paste->created_at }}</td>

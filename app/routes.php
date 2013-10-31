@@ -14,7 +14,7 @@
 Route::model('paste', 'Pastes');
 
 Route::get('/', 'ClipController@index');
-//Route::get('/{id}', 'ClipController@get');
+Route::get('/get/{paste}', 'ClipController@get');
 Route::get('/create', 'ClipController@create');
 Route::get('/edit/{paste}', 'ClipController@edit');
 Route::get('/delete/{paste}', 'ClipController@delete');

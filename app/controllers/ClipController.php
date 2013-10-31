@@ -29,9 +29,10 @@ class ClipController extends BaseController
 		return Redirect::action('ClipController@index');
 	}
 
-	public function get()
+	public function get(Pastes $paste)
 	{
-		# code...
+		// Show the page with paste and the possibility to reply
+		return View::make('get', compact('paste'));
 	}
 
 	public function edit(Pastes $paste)
@@ -50,7 +51,7 @@ class ClipController extends BaseController
 		$paste->code = Input::has('code');
 		$paste->save();
 
-		return Redirect::action('CLipController@index');
+		return Redirect::action('ClipController@index');
 
 	}
 

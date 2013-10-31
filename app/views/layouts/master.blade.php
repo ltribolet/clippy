@@ -11,6 +11,9 @@
     <!-- CSS -->
     {{ HTML::style('css/bootstrap.css') }}
 
+    @section('link')
+    @show
+
     <style>
     @section('styles')
             body {
@@ -38,8 +41,8 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ action('ClipController@index') }}">Home</a></li>
-                    <li><a href="{{ action('ClipController@create') }}">New Clip</a></li>
+                    {{ HTML::nav_link(action('ClipController@index'), 'Home') }}
+                    {{ HTML::nav_link(action('ClipController@create'), 'New Clip') }}
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -53,5 +56,8 @@
     <!-- Scripts -->
     {{ HTML::script('js/jquery.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
+
+    @section('scripts')
+    @show
 </body>
 </html>
