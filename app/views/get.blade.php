@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('link')
+	{{ HTML::style('css/clip.css') }}
+@stop
+
 @section('content')
 	<div class="page-header">
 		<h1>Clip</h1>
@@ -22,7 +26,8 @@
 			</div>
 			<div class="form-group">
 				{{ Form::label('code', 'Paste your code'); }}
-				{{ Form::textarea('code',null, array('class' => 'form-control')); }}
+				{{ Form::textarea('code',null, array('class' => 'form-control disabled')); }}
+				<div id="nice-code"></div>
 			</div>
 			<div class="form-group">
 				<a href="{{ action('ClipController@index') }}" class="btn btn-link">Cancel</a>
@@ -31,4 +36,10 @@
 			{{ Form::close() }}
 		</div>
 	</div>
+@stop
+
+
+@section('scripts')
+{{ HTML::script('js/ace/ace.js') }}
+{{ HTML::script('js/clipeditor.js') }}
 @stop

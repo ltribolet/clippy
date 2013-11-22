@@ -12,6 +12,11 @@ jQuery(document).ready(function($) {
 		return aceEditor;
 	})();
 
+	if( $('#code').hasClass('disabled') )
+	{
+		editor.setReadOnly(true);
+	}
+
 	$('#language').on('change', function() {
 		var newLanguage = this.value;
 
