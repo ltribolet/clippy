@@ -1,5 +1,12 @@
+# Laravel specific
+app/database/*.sqlite
+/app/storage/
 /bootstrap/compiled.php
+
+# Composer specific
 /vendor
 composer.phar
-composer.lock
+
+# Mac specific
 .DS_Store
+Thumbs.db

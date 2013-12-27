@@ -16,6 +16,11 @@ class ClipController extends BaseController
 		return View::make('create');
 	}
 
+	public function about()
+	{
+		return View::make('about');
+	}
+
 	public function handleCreate()
 	{
 		// Handle create form submission.

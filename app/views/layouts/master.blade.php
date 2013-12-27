@@ -37,12 +37,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">ClipClip</a>
+                <a class="navbar-brand" href="#">Clippy</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     {{ HTML::nav_link(action('ClipController@index'), 'Home') }}
                     {{ HTML::nav_link(action('ClipController@create'), 'New Clip') }}
+                    {{ HTML::nav_link(action('ClipController@about'), 'About') }}
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
