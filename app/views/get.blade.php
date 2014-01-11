@@ -10,7 +10,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			{{ Form::model($paste, array('action' => array('ClipController@handleEdit'))) }}
+			{{ Form::model($clip, array('action' => array('ClipController@handleEdit'))) }}
 			{{ Form::hidden('id', null) }}
 			<div class="form-group">
 				{{ Form::label('author', 'Author'); }}

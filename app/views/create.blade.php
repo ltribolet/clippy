@@ -12,7 +12,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="page-header">
-			<h1>Create a new paste</h1>
+			<h1>Create a new clip</h1>
 		</div>
 	</div>
 </div>

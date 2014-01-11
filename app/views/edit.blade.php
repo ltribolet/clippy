@@ -9,7 +9,7 @@
 		<h1>Edit Clip</h1>
 	</div>
 
-	{{ Form::model($paste, array('action' => array('ClipController@handleEdit'))) }}
+	{{ Form::model($clip, array('action' => array('ClipController@handleEdit'))) }}
 	<div class="row">
 		<div class="col-md-3">
 			{{ Form::hidden('id', null) }}

@@ -16,13 +16,13 @@
 
 <div class="panel panel-default">
 	<div class="panel-body">
-		<a href="{{ action('ClipController@create') }}" class="btn btn-primary">Create Paste</a>
+		<a href="{{ action('ClipController@create') }}" class="btn btn-primary">Create clip</a>
 	</div>
 </div>
 
 
-@if ($pastes->isEmpty())
-	<p>There are no pastes! :(</p>
+@if ($clip->isEmpty())
+	<p>There are no clips! :(</p>
 @else
 	<table class="table table-striped">
 		<thead>
@@ -35,15 +35,15 @@
 			</tr>
 		</thead>
 		<tbody>
-		@foreach($pastes as $paste)
+		@foreach($clip as $clippy)
 			<tr>
-				<td><a href="{{ action('ClipController@get', $paste->id) }}">{{ $paste->title }}</a></td>
-				<td>{{ $paste->author }}</td>
-				<td>{{ $paste->private ? 'Yes' : 'No' }}</td>
-				<td>{{ $paste->created_at }}</td>
+				<td><a href="{{ action('ClipController@get', $clippy->id) }}">{{ $clippy->title }}</a></td>
+				<td>{{ $clippy->author }}</td>
+				<td>{{ $clippy->private ? 'Yes' : 'No' }}</td>
+				<td>{{ $clippy->created_at }}</td>
 				<td>
-					<a href="{{ action('ClipController@edit', $paste->id) }}" class="btn btn-default">Edit</a>
-					<a href="{{ action('ClipController@delete', $paste->id) }}" class="btn btn-danger">Delete</a>
+					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-default">Edit</a>
+					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
 		@endforeach

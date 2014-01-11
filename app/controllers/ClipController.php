@@ -5,14 +5,14 @@ class ClipController extends BaseController
 	public function index()
 	{
 		// Show a listing of games.
-		$pastes = Pastes::all();
-		return View::make('index', compact('pastes'));
+		$clip = Clip::all();
+		return View::make('index', compact('clip'));
 
 	}
 
 	public function create()
 	{
-		// Show the create paste form.
+		// Show the create clip form.
 		return View::make('create');
 	}
 
@@ -24,55 +24,55 @@ class ClipController extends BaseController
 	public function handleCreate()
 	{
 		// Handle create form submission.
-		$paste = new Pastes;
-		$paste->title = Input::get('title');
-		$paste->author = Input::get('author');
-		$paste->language = Input::get('language');
-		$paste->code = Input::get('code');
-		$paste->save();
+		$clip = new Clip;
+		$clip->title = Input::get('title');
+		$clip->author = Input::get('author');
+		$clip->language = Input::get('language');
+		$clip->code = Input::get('code');
+		$clip->save();
 
 		return Redirect::action('ClipController@index');
 	}
 
-	public function get(Pastes $paste)
+	public function get(Clip $clip)
 	{
-		// Show the page with paste and the possibility to reply
-		return View::make('get', compact('paste'));
+		// Show the page with clip and the possibility to reply
+		return View::make('get', compact('clip'));
 	}
 
-	public function edit(Pastes $paste)
+	public function edit(Clip $clip)
 	{
-		// Show the edit paste form.
-		return View::make('edit', compact('paste'));
+		// Show the edit clip form.
+		return View::make('edit', compact('clip'));
 	}
 
 	public function handleEdit()
 	{
 		// Handle edit form submission
-		$paste = Pastes::findOrFail(Input::get('id'));
-		$paste->title = Input::get('title');
-		$paste->author = Input::get('author');
-		$paste->language = Input::get('language');
-		$paste->code = Input::has('code');
-		$paste->save();
+		$clip = Clip::findOrFail(Input::get('id'));
+		$clip->title = Input::get('title');
+		$clip->author = Input::get('author');
+		$clip->language = Input::get('language');
+		$clip->code = Input::has('code');
+		$clip->save();
 
 		return Redirect::action('ClipController@index');
 
 	}
 
 
-	public function delete(Pastes $paste)
+	public function delete(Clip $clip)
 	{
 		// Show delete confirmation page.
-		return View::make('delete', compact('paste'));
+		return View::make('delete', compact('clip'));
 	}
 
 	public function handleDelete()
 	{
 		// Handle the delete confirmation.
-		$id = Input::get('paste');
-		$paste = Pastes::findOrFail($id);
-		$paste->delete();
+		$id = Input::get('clip');
+		$clip = Clip::findOrFail($id);
+		$clip->delete();
 
 		return Redirect::action('ClipController@index');
 

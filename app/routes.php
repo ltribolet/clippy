@@ -11,14 +11,14 @@
 |
 */
 
-Route::model('paste', 'Pastes');
+Route::model('clip', 'Clip');
 
 Route::get('/', 'ClipController@index');
 Route::get('/about', 'ClipController@about');
-Route::get('/get/{paste}', 'ClipController@get');
+Route::get('/get/{clip}', 'ClipController@get');
 Route::get('/create', 'ClipController@create');
-Route::get('/edit/{paste}', 'ClipController@edit');
-Route::get('/delete/{paste}', 'ClipController@delete');
+Route::get('/edit/{clip}', 'ClipController@edit');
+Route::get('/delete/{clip}', 'ClipController@delete');
 
 // Handle form submissions.
 Route::post('/create', 'ClipController@handleCreate');
