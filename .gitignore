@@ -10,3 +10,6 @@ composer.phar
 # Mac specific
 .DS_Store
 Thumbs.db
+
+# Perso
+.idea

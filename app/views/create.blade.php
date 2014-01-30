@@ -3,9 +3,6 @@
 	@section('title')
 		@parent :: Clip It
 	@stop
-	@section('link')
-		{{ HTML::style('css/clip.css') }}
-	@stop
 </title>
 
 @section('content')

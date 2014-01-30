@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('link')
-	{{ HTML::style('css/clip.css') }}
-@stop
-
 @section('content')
 	<div class="page-header">
 		<h1>Clip</h1>

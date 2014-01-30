@@ -13,14 +13,34 @@
 
 Route::model('clip', 'Clip');
 
-Route::get('/', 'ClipController@index');
-Route::get('/about', 'ClipController@about');
-Route::get('/get/{clip}', 'ClipController@get');
-Route::get('/create', 'ClipController@create');
-Route::get('/edit/{clip}', 'ClipController@edit');
-Route::get('/delete/{clip}', 'ClipController@delete');
+Route::group(array('before' => 'auth'), function()
+{
+	Route::get('/', 'ClipController@index');
+	Route::get('/about', 'ClipController@about');
+	Route::get('/get/{clip}', 'ClipController@get');
+	Route::get('/create', 'ClipController@create');
+	Route::get('/edit/{clip}', 'ClipController@edit');
+	Route::get('/delete/{clip}', 'ClipController@delete');
 
-// Handle form submissions.
-Route::post('/create', 'ClipController@handleCreate');
-Route::post('/edit', 'ClipController@handleEdit');
-Route::post('/delete', 'ClipController@handleDelete');
+	// Handle form submissions.
+	Route::post('/create', 'ClipController@handleCreate');
+	Route::post('/edit', 'ClipController@handleEdit');
+	Route::post('/delete', 'ClipController@handleDelete');
+});
+
+
+
+// Users
+Route::get('/user', 'UserController@index');
+
+Route::filter('auth', function()
+{
+	if (Auth::guest()) return Redirect::guest('login');
+});
+
+Route::get('/login', 'UserController@login');
+Route::get('/logout', 'UserController@logout');
+
+
+Route::post('/user', 'UserController@handleCreate');
+Route::post('/login', 'UserController@handleLogin');
