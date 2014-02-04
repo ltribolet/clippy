@@ -19,7 +19,7 @@
 			{{ Form::hidden('id', null) }}
 			<div class="form-group">
 				{{ Form::label('author', 'Author'); }}
-				{{ Form::text('author', null, array('class' => 'form-control', 'placeholder' => 'M. Toto')); }}
+				{{ Form::text('author', Auth::user()->username, array('class' => 'form-control', 'placeholder' => 'M. Toto')); }}
 			</div>
 		</div>
 		<div class="col-md-3">

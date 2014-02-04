@@ -32,6 +32,7 @@ Route::group(array('before' => 'auth'), function()
 
 // Users
 Route::get('/user', 'UserController@index');
+Route::get('/user/create', 'UserController@create');
 
 Route::filter('auth', function()
 {
@@ -42,5 +43,5 @@ Route::get('/login', 'UserController@login');
 Route::get('/logout', 'UserController@logout');
 
 
-Route::post('/user', 'UserController@handleCreate');
+Route::post('/user/create', 'UserController@handleCreate');
 Route::post('/login', 'UserController@handleLogin');

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class AddTimestampsToGames extends Migration {
+class AddClipColumnUser extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,13 +11,11 @@ class AddTimestampsToGames extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('pastes', function($table)
+		Schema::table('clips', function($table)
 		{
-			$table->timestamps();
-			$table->renameColumn('raw', 'code');
-			$table->dropColumn('created');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users');
 		});
-
 	}
 
 	/**
@@ -29,8 +27,8 @@ class AddTimestampsToGames extends Migration {
 	{
 		Schema::table('clips', function($table)
 		{
-			$table->renameColumn('code', 'raw');
-			$table->dropColumn('created_at', 'updated_at');
+			$table->dropForeign('clips_user_id_foreign');
+			$table->dropColumn('user_id');
 		});
 	}
 

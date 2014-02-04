@@ -24,7 +24,7 @@
 					<input type="checkbox" name="remember" id="remember" class=""/> <label for="remember">Remember me.</label>
 				</div>
 				<input type="submit" value="Login" class="btn btn-primary btn-lg">
-				<a href="{{ action('UserController@index') }}" class="btn btn-link">New user ?</a>
+				<a href="{{ action('UserController@create') }}" class="btn btn-link">New user ?</a>
 			</div>
 		</div>
 	</form>

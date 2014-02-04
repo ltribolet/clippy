@@ -14,6 +14,7 @@ First you need to fill up the file app/config/database.php with your relevant in
 Then you have to run :
 
     php artisan migrate
+    php artisan db:seed
 
 This will create for you tables and every datas needed.
 

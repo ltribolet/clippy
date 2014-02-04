@@ -9,6 +9,13 @@ class UserController extends BaseController
 
 	}
 
+	public function create()
+	{
+		// Show a listing of games.
+		return View::make('create_user_form');
+
+	}
+
 	public function handleCreate()
 	{
 		// Handle create form submission.
@@ -18,8 +25,9 @@ class UserController extends BaseController
 		$user->email = Input::get('email');
 		$user->save();
 
+		Auth::login($user);
 
-		return Response::make('User created! Hurray!');
+		return Redirect::action('ClipController@index');
 	}
 
 	public function login()

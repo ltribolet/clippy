@@ -13,11 +13,10 @@ class CreateUserTable extends Migration {
 	{
 		Schema::create('users', function($table)
 		{
-			$table->engine = 'MYISAM';
 			$table->increments('id');
 			$table->string('username', 128)->unique();
 			$table->string('password', 60);
-			$table->string('email', 320)->unique();
+			$table->string('email', 255)->unique();
 			$table->timestamps();
 		});
 	}
