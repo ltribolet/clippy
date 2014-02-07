@@ -45,8 +45,8 @@
 				<td>{{ $clippy->private ? 'Yes' : 'No' }}</td>
 				<td>{{ $clippy->created_at }}</td>
 				<td>
-					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-default">Edit</a>
-					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-danger">Delete</a>
+					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-sm btn-default">Edit</a>
+					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-sm btn-danger">Delete</a>
 				</td>
 			</tr>
 			@endforeach
@@ -78,8 +78,8 @@
 				<td>{{ $clippy->private ? 'Yes' : 'No' }}</td>
 				<td>{{ $clippy->created_at }}</td>
 				<td>
-					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-default">Edit</a>
-					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-danger">Delete</a>
+					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-sm btn-default">Edit</a>
+					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-sm btn-danger">Delete</a>
 				</td>
 			</tr>
 			@endforeach

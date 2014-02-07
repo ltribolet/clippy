@@ -5,7 +5,7 @@ class ClipController extends BaseController
 	public function index()
 	{
 		// Show a listing of games.
-		$clipAll = Clip::all();
+		$clipAll = Clip::where('private', '=', 0)->get();
 		$clipUser = Clip::where('user_id', '=', Auth::user()->id)->get();
 		return View::make('index', compact('clipAll', 'clipUser'));
 
@@ -30,6 +30,7 @@ class ClipController extends BaseController
 		$clip->author = Input::get('author');
 		$clip->language = Input::get('language');
 		$clip->code = Input::get('code');
+		$clip->private = (Input::get('private') === 'yes') ? 1 : 0;
 		$clip->user_id = Auth::user()->id;
 		$clip->save();
 
