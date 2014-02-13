@@ -21,40 +21,7 @@
 </div>
 
 <div class="row">
-	<div class="col-md-6">
-		@if ($clipAll->isEmpty())
-		<p>There are no public clips! :(</p>
-		<p>Go create them !</p>
-		@else
-		<h2>All Public Clips</h2>
-		<table class="table table-striped">
-			<thead>
-			<tr>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Private</th>
-				<th>Created</th>
-				<th>Actions</th>
-			</tr>
-			</thead>
-			<tbody>
-			@foreach($clipAll as $clippy)
-			<tr>
-				<td><a href="{{ action('ClipController@get', $clippy->id) }}">{{ $clippy->title }}</a></td>
-				<td>{{ $clippy->author }}</td>
-				<td>{{ $clippy->private ? 'Yes' : 'No' }}</td>
-				<td>{{ $clippy->created_at }}</td>
-				<td>
-					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-sm btn-default">Edit</a>
-					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-sm btn-danger">Delete</a>
-				</td>
-			</tr>
-			@endforeach
-			</tbody>
-		</table>
-		@endif
-	</div>
-	<div class="col-md-6">
+	<div class="col-md-12">
 		@if ($clipUser->isEmpty())
 		<p>You have no clips! :(</p>
 		<p>Go create them !</p>
@@ -72,6 +39,41 @@
 			</thead>
 			<tbody>
 			@foreach($clipUser as $clippy)
+			<tr>
+				<td><a href="{{ action('ClipController@get', $clippy->id) }}">{{ $clippy->title }}</a></td>
+				<td>{{ $clippy->author }}</td>
+				<td>{{ $clippy->private ? 'Yes' : 'No' }}</td>
+				<td>{{ $clippy->created_at }}</td>
+				<td>
+					<a href="{{ action('ClipController@edit', $clippy->id) }}" class="btn btn-sm btn-default">Edit</a>
+					<a href="{{ action('ClipController@delete', $clippy->id) }}" class="btn btn-sm btn-danger">Delete</a>
+				</td>
+			</tr>
+			@endforeach
+			</tbody>
+		</table>
+		@endif
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		@if ($clipAll->isEmpty())
+		<p>There are no public clips! :(</p>
+		<p>Go create them !</p>
+		@else
+		<h2>All Public Clips</h2>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Private</th>
+				<th>Created</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody>
+			@foreach($clipAll as $clippy)
 			<tr>
 				<td><a href="{{ action('ClipController@get', $clippy->id) }}">{{ $clippy->title }}</a></td>
 				<td>{{ $clippy->author }}</td>

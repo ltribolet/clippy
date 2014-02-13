@@ -8,10 +8,10 @@ body {
 	border: 1px solid #DDD;
 	border-radius: 4px;
 	border-bottom-right-radius: 0px;
-	margin-top: 5px;
+	margin: 5px 0 15px;
 }
 
-.container {
+.clipainer {
     min-height: 100%;
     height: auto;
     /* Negative indent footer by it's height */

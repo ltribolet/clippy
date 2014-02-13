@@ -8,6 +8,9 @@ jQuery(document).ready(function($) {
 		aceEditor.getSession().on('change', function(){
 			textarea.val(aceEditor.getSession().getValue());
 		});
+        aceEditor.setOptions({
+            maxLines: Infinity
+        });
 
 		return aceEditor;
 	})();
