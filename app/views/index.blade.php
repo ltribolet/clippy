@@ -16,7 +16,7 @@
 
 <div class="panel panel-default">
 	<div class="panel-body">
-		<a href="{{ action('ClipController@create') }}" class="btn btn-primary">Create clip</a>
+		<a href="{{ action('ClipController@create') }}" class="btn btn-lg btn-primary btn-create">Create clip</a>
 	</div>
 </div>
 

@@ -16,7 +16,13 @@ body {
     height: auto;
     /* Negative indent footer by it's height */
     margin: 0 auto -300px;
-    padding: 0 0 300px;
+    padding-bottom: 300px;
+}
+
+.btn-create {
+    display: block;
+    width: 400px;
+    margin: auto;
 }
 
 

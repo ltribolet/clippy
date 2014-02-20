@@ -52,6 +52,7 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
+							<li><a href="{{ action('UserController@get', Auth::user()->id) }}">My Profile</a></li>
 							<li>{{ HTML::linkAction('UserController@logout', 'Logout') }}</li>
 						</ul>
 					</li>

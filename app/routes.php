@@ -12,6 +12,7 @@
 */
 
 Route::model('clip', 'Clip');
+Route::model('user', 'User');
 
 Route::group(array('before' => 'auth'), function()
 {
@@ -26,12 +27,23 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/create', 'ClipController@handleCreate');
 	Route::post('/edit', 'ClipController@handleEdit');
 	Route::post('/delete', 'ClipController@handleDelete');
+
+
+	// User stuff
+	Route::get('/user', 'UserController@index');
+	Route::get('/user/{user}', 'UserController@get');
+	Route::get('/user/edit/{user}', 'UserController@edit');
+	Route::get('/user/delete/{user}', 'UserController@delete');
+
+	// Handle form submissions.
+	Route::post('/user/edit', 'UserController@handleEdit');
+	Route::post('/user/delete', 'UserController@handleDelete');
 });
 
 
 
 // Users
-Route::get('/user', 'UserController@index');
+Route::get('/user/new', 'UserController@index');
 Route::get('/user/create', 'UserController@create');
 
 Route::filter('auth', function()
