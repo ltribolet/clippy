@@ -43,8 +43,7 @@ Route::group(array('before' => 'auth'), function()
 
 
 // Users
-Route::get('/user/new', 'UserController@index');
-Route::get('/user/create', 'UserController@create');
+Route::get('/subscribe', 'UserController@create');
 
 Route::filter('auth', function()
 {
